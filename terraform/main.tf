@@ -13,14 +13,14 @@ module "internet_gateway" {
 }
 
 module "route_table" {
-  source = "./modules/route-table"
+  source              = "./modules/route-table"
   vpc_id              = module.vpc.vpc_id
   internet_gateway_id = module.internet_gateway.internet_gateway_id
   public_subnet_id    = module.public_subnet.public_subnet_id
 }
 
 module "ec2" {
-  source = "./modules/ec2"
-  vpc_id                  = module.vpc.vpc_id
-  public_subnet_id        = module.public_subnet.public_subnet_id
+  source           = "./modules/ec2"
+  vpc_id           = module.vpc.vpc_id
+  public_subnet_id = module.public_subnet.public_subnet_id
 }
